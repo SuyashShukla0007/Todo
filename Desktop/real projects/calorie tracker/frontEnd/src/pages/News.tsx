@@ -21,9 +21,11 @@ const News = () => {
   }, [])
 
   return (
+
     <div>
-      <div id="newsHead" className='h-[120px] ml-3 bg-emerald-300 text-5xl py-[35px] px-[500px] font-serif'>
-        NEWS
+      
+      <div id="newsHead" className='h-[120px]  bg-gray-900 text-white text-5xl py-[35px] px-[350px] w-[75vw] mx-3 mt-4 rounded-3xl  font-serif'>
+        HEALTH NEWS
       </div>
       <div className='grid grid-cols-4 mt-3 ml-[85px] text-pretty'>
       {articles.filter(article => (article.urlToImage &&article.description && article.url) ).map((article, index) => (
