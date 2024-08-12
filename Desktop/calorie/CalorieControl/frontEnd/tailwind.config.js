@@ -5,7 +5,23 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inknut-antiqua': ['"Inknut Antiqua"', 'serif'],
+      },
+      fontWeight: {
+        light: 300,
+        heavy:600
+      },
+      colors: {
+        'lightest-green': '#D6EFD8',
+        'light-green':'#80AF81',
+        'green':'#508D4E',
+        'dark-green':'#1A5319'
+      },
+    },
+    
+
   },
   plugins: [],
 }

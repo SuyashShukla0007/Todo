@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import news from '../api/news'
-import { Source,Article } from '../interface'
+import { Source,Article } from '../components/types/interface'
 
 
 const News = () => {
@@ -28,7 +28,7 @@ const News = () => {
         HEALTH NEWS
       </div>
       <div className='grid grid-cols-4 mt-3 ml-[85px] text-pretty'>
-      {articles.filter(article => (article.urlToImage &&article.description && article.url) ).map((article, index) => (
+      {articles.map((article, index) => (
           <Card key={index} urlToImage={article.urlToImage} description={article.description} url={article.url} title={article.title} />
         ))}
       </div>
