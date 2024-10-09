@@ -6,7 +6,8 @@ import createUser from './controllers/user';
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors()); // allow all origins
+app.options('*', cors());  // Enable CORS preflight requests
+// allow all origins
 app.use(express.json());
 
 app.get('/todo/:UserId', getTodos);
