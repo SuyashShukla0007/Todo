@@ -13,7 +13,7 @@ export default async function createUser(req: Request, res: Response) {
         password: body.pass, 
       },
     });
-    
+    res.cookie('userId', user.id, { httpOnly: true, secure: true, sameSite: 'none' });
     res.status(201).json({ success: true, data: user });
   } catch (error:any) {
     res.status(500).json({ success: false, message: error.message });
