@@ -9,7 +9,11 @@ const todo_1 = require("./controllers/todo");
 const user_1 = __importDefault(require("./controllers/user"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 4000;
-app.use((0, cors_1.default)()); // allow all origins
+app.use((0, cors_1.default)({
+    origin: 'https://todo-zs4f.vercel.app', // Replace with the actual URL of your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers if necessary
+}));
 app.use(express_1.default.json());
 app.get('/todo/:UserId', todo_1.getTodos);
 app.patch('/todo/:id', todo_1.updateTodo);
