@@ -14,7 +14,7 @@ export default function TodoList() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("https://todo-5l9i-8s4k70nnj-suyashs-projects-1b8e325c.vercel.app/todo/1");
+      const response = await axios.get("https://todoback-alpha.vercel.app/todo/1");
       setTasks(response.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -33,7 +33,7 @@ export default function TodoList() {
     };
 
     try {
-      const res = await axios.post("https://todo-5l9i-8s4k70nnj-suyashs-projects-1b8e325c.vercel.app/todo/1", newTaskObj);
+      const res = await axios.post("https://todoback-alpha.vercel.app/todo/1", newTaskObj);
       setTasks([...tasks, res.data]);
       setNewTask("");
       setError(null);
@@ -48,7 +48,7 @@ export default function TodoList() {
     if (!taskToUpdate) return;
 
     try {
-      await axios.patch(`https://todo-5l9i-8s4k70nnj-suyashs-projects-1b8e325c.vercel.app/todo/${taskId}`, {
+      await axios.patch(`https://todoback-alpha.vercel.app/todo/${taskId}`, {
         ...taskToUpdate,
         completed: !taskToUpdate.completed,
       });
@@ -66,7 +66,7 @@ export default function TodoList() {
 
   const handleDeleteTask = async (taskId) => {
     try {
-      await axios.delete(`https://todo-5l9i-8s4k70nnj-suyashs-projects-1b8e325c.vercel.app/todo/${taskId}`);
+      await axios.delete(`https://todoback-alpha.vercel.app/todo/${taskId}`);
       setTasks(tasks.filter((task) => task.id !== taskId));
       setError(null);
     } catch (error) {
@@ -85,7 +85,7 @@ export default function TodoList() {
   
     try {
       const updatedTask = { ...editingTask, title: newTask };
-      const res = await axios.patch(`https://todo-5l9i-8s4k70nnj-suyashs-projects-1b8e325c.vercel.app/todo/${editingTask.id}`, updatedTask);
+      const res = await axios.patch(`https://todoback-alpha.vercel.app/todo/${editingTask.id}`, updatedTask);
       setTasks(tasks.map((task) => (task.id === editingTask.id ? res.data : task)));
       setNewTask("");
       setEditingTask(null);
